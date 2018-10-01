@@ -1,6 +1,6 @@
 import { getDescription, getComment } from './variables'
 
-export default function processMethods(docFile) {
+export default function processEvents(docFile) {
   docFile = docFile.slice().reverse()
   const listDocMethods = {}
   const docParts = docFile.filter(comment => {

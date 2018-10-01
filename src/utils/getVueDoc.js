@@ -3,12 +3,13 @@ import {
   IGNORE_DEFAULT,
   getDescription,
   getComment,
-  EMPTY
+  EMPTY,
 } from './variables'
 import processTags from './processTags'
 import processProps from './processProps'
 import processMethods from './processMethods'
 import processEvents from './processEvents'
+import processComponents from './processComponents'
 
 export default function getVueDoc(stateDoc, component) {
   let docJsFile = stateDoc.getDocJs()
@@ -40,6 +41,7 @@ export default function getVueDoc(stateDoc, component) {
   const props = processProps(docJsFile, component)
   const methods = processMethods(docJsFile, component)
   const events = processEvents(docJsFile, component)
+  const components = processComponents(docJsFile, component)
 
   return {
     description,
@@ -50,5 +52,6 @@ export default function getVueDoc(stateDoc, component) {
     tags,
     events,
     slots: stateDoc.slots,
+    components,
   }
 }
